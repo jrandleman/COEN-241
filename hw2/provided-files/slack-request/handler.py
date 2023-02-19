@@ -10,9 +10,9 @@ def handle(req):
                 "value": "100",
                 "short": True
             }],
-            "author_name": <FILL IN THE BLANK>,
+            "author_name": "Jordan Randleman",
             "author_icon": "",
-            "image_url": <FILL IN THE BLANK>
+            "image_url": "https://www.scu.edu/media/school-of-engineering/photos/computer-engineering-photos/faculty-and-staff-photo/Sean-Choi-360x360.jpg"
         },
         {
             "title": "About COEN 241",
