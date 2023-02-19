@@ -1,0 +1,105 @@
+--- Questions ---
+
+Student Name: Jordan Randleman
+Student ID: 00001524026
+
+=================================================
+
+1. What is the command to invoke the slack-request function (4 pts)?
+	a. Via Curl: sudo curl localhost:8080/function/slack-request -d “42”
+	b. Via faas-cli: echo "42" | sudo faas-cli invoke slack-request
+
+=================================================
+
+2. What is the output you see when you invoke the slack-request function? (2 pts)
+
+{
+  "text": "Serverless Message",
+  "attachments": [
+    {
+      "fields": [
+        {
+          "short": true,
+          "value": "100",
+          "title": "Amazing Level"
+        }
+      ],
+      "author_icon": "",
+      "image_url": "https://www.scu.edu/media/school-of-engineering/photos/computer-engineering-photos/faculty-and-staff-photo/Sean-Choi-360x360.jpg",
+      "author_name": "Jordan Randleman",
+      "title": "The Awesome world of Cloud Computing! COEN 241"
+    },
+    {
+      "text": "COEN 241 is the most awesome class ever!.",
+      "title": "About COEN 241"
+    },
+    {
+      "title": "Would you recommend COEN 241 to your friends?",
+      "color": "#3AA3E3",
+      "actions": [
+        {
+          "text": "Of Course!",
+          "type": "button",
+          "name": "recommend",
+          "value": "recommend"
+        },
+        {
+          "text": "Most Definitely!",
+          "type": "button",
+          "name": "definitely",
+          "value": "definitely"
+        }
+      ],
+      "callback_id": "response123",
+      "fallback": "Would you recommend COEN 241 to your friends?",
+      "attachment_type": "default"
+    }
+  ]
+}
+
+=================================================
+
+3. What is the command to invoke the slack-interactive function? (4 pts)
+	a. Via Curl: sudo curl localhost:8080/function/slack-interactive -d “42”
+	b. Via faas-cli: echo "42" | sudo faas-cli invoke slack-interactive
+
+=================================================
+
+4. What is the output you see when you invoke the slack-interactive function? (2 pts)
+
+{
+  "attachments": [
+    {
+      "footer": "Slack Apps built on OpenFaas",
+      "author_link": "https://github.com/jrandleman/COEN-241",
+      "color": "#36a64f",
+      "text": "Head over to COEN 241",
+      "title": "COEN 241",
+      "ts": 123456789,
+      "author_name": "",
+      "title_link": "https://www.scu.edu/engineering/academic-programs/department-of-computer-engineering/graduate/course-descriptions/",
+      "image_url": "https://www.scu.edu/media/offices/umc/scu-brand-guidelines/visual-identity-amp-photography/visual-identity-toolkit/logos-amp-seals/Mission-Dont3.png",
+      "response_type": "ephemeral",
+      "replace_original": true,
+      "footer_icon": "https://a.slack-edge.com/45901/marketing/img/_rebrand/meta/slack_hash_256.png",
+      "pretext": "Ahh yeah! Great choice, COEN 241 is absolutely amazing!",
+      "fallback": "Required plain-text summary of the attachment.",
+      "thumb_url": "https://www.scu.edu/engineering/academic-programs/department-of-computer-engineering/graduate/course-descriptions/",
+      "author_icon": "https://avatars.githubusercontent.com/u/44122305?s=400&u=792d804516431eacf0f1c7b42114353a881f70a0&v=4"
+    }
+  ]
+}
+
+=================================================
+
+5. How would you pass different arguments to the functions? (4 pts)
+	a. Via Curl: Pass the different argument as a string after the “-d” flag in:
+		sudo curl localhost:8080/function/slack-request -d “<NEW-ARGUMENT>”
+	b. Via faas-cli: Echo the different argument as a string prior piping to “faas-cli”:
+		echo "<NEW-ARGUMENT>" | sudo faas-cli invoke slack-request
+
+=================================================
+
+6. How would you change the slack-interactive function to react to different inputs? (4 pts)
+
+Depending on the request body input that was received (as passed in by the “req” python variable--which we decode as JSON--in the “handle” function for “slack-interative”’s handler.py), we could change our returned response so as to make the function truly interactive. Examples of this interaction could be as simple as just splicing in the user’s input as part of our response to prove that we’ve processed the user’s request, or be so complicated as to wholly change the returned response based on what kind of JSON input we receive from the user.

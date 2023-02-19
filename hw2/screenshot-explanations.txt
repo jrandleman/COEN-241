@@ -1,0 +1,28 @@
+--- Screenshot Explanations ---
+
+Student Name: Jordan Randleman
+Student ID: 00001524026
+
+
+
+Picture 1: 
+
+=> The picture shows both (A) how I would deploy the figlet function (which was already done at this point, hence why I got the “Function figlet already exists [...]” message), and (B) a sample invocation of the figlet function to get “Trying out figlet!” printed to the screen in ASCII bubble letters.
+
+
+
+Picture 2: 
+
+=> The picture shows what happens after executing the “sudo journalctl -u faasd --lines 40” command in my Ubuntu VM. In particular, this prints out 40 lines of logs that track faasd’s behavior.
+
+
+
+Pictures 3.1-3.3:
+
+=> These pictures show the OpenFaas Gateway’s various tabs after deploying the figlet, slack-interactive, and slack-request functions. Note that I was only able to access this tab on my host machine’s browser (at the the “http://localhost:8080” url) after port-forwarding port 8080 between my Ubuntu VM and host machine (which required a bit of googling to learn how to do with the UTM hypervisor I’m using).
+
+
+
+Pictures 4.1-4.2:
+
+=> These pictures show the JSON responses of invoking the already-deployed slack-interactive and slack-request functions from my Ubuntu VM. Note that I invoke the functions in these screenshots using “faas-cli”, though I could have easily done so via CURL as well. Note that the JSON return values also properly portray the custom changes I made to both functions’ “handler.py” files.
